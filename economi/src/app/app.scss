@@ -1,0 +1,6 @@
+@use 'scss/index';
+
+@use 'bootstrap/scss/bootstrap' with (
+  $primary: #3308f0, // tu color personalizado
+  $secondary: #6c757d
+);
