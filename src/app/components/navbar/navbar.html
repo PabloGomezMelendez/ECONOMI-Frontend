@@ -1,0 +1,37 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-3">
+    <!-- Logo y texto -->
+    <a class="navbar-brand d-flex align-items-center" href="/">
+        <img src="img/logo_sin_nombre.png" alt="Logo" style="height: 40px; margin-right: 10px;">
+        <span>ECONOMI</span>
+    </a>
+
+    <!-- Opciones -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav d-flex align-items-center">
+            <!-- Si está logueado -->
+            <!-- <ng-container *ngIf="authService.isLoggedIn(); else guestOptions"> -->
+                <li class="nav-item me-2">
+                    <a class="btn btn-outline-primary" href="/"><i class="bi bi-house"></i></a>
+                </li>
+                <li class="nav-item me-2">
+                    <a class="btn btn-outline-primary" href="/cash-flow">Cash-Flow</a>
+                </li>
+                <li class="nav-item me-2">
+                    <a class="btn btn-outline-primary" href="/cash-flow-formulario">Formulario</a>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-danger" (click)="logout()">Cerrar sesión</button>
+                </li>
+            <!-- </ng-container> -->
+            <!-- Si NO está logueado -->
+            <!-- <ng-template #guestOptions> -->
+                <!-- <li class="nav-item me-2">
+                    <button class="btn btn-outline-primary" routerLink="/login">Login</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-primary" routerLink="/register">Registro</button>
+                </li> -->
+            <!-- </ng-template> -->
+        </ul>
+    </div>
+</nav>

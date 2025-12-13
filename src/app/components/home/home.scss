@@ -1,0 +1,30 @@
+#hero {
+    background: url('../../assets/hero-img.jpg') no-repeat center center;
+    background-size: cover;
+    height: 50vh; // máximo 50% de la pantalla
+    display: flex;
+    align-items: center;
+
+    .hero-content {
+        background-color: #f8f9fa; // gris claro
+        border-radius: 12px;
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 2rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+        h1,
+        h2 {
+            color: #333;
+        }
+    }
+}
+
+.about-us img {
+    max-width: 30rem;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    object-fit: cover; /* Mantiene proporción sin deformar */
+    border-radius: 8px; /* Opcional para estética */
+}

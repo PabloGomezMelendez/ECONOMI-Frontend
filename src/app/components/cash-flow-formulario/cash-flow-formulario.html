@@ -1,0 +1,90 @@
+<!-- Navbar -->
+<app-navbar></app-navbar>
+<!-- End Navbar -->
+<!-- Main Content -->
+<div class="container mt-4 mb-5">
+    <h2>Formulario de Cash Flow</h2>
+    <form [formGroup]="cashFlowForm" (ngSubmit)="submitForm()">
+
+        <!-- Datos Generales -->
+        <form class="mb-3">
+            <label>Nombre del Proyecto</label>
+            <input type="text" class="form-control" formControlName="proyecto" title="Nombre del proyecto" placeholder="Nombre del proyecto">
+            <div *ngIf="cashFlowForm.get('proyecto')?.invalid && cashFlowForm.get('proyecto')?.touched"
+                class="text-danger">
+                El nombre es obligatorio (mínimo 3 caracteres).
+            </div>
+        </form>
+
+        <div class="row">
+            <form class="col">
+                <label>Periodo</label>
+                <select class="form-select" formControlName="periodo" title="Selecciona el periodo">
+                    <option value="">Selecciona...</option>
+                    <option value="mensual">Mensual</option>
+                    <option value="trimestral">Trimestral</option>
+                    <option value="anual">Anual</option>
+                </select>
+            </form>
+            <form class="col">
+                <label>Fecha Inicio</label>
+                <input type="date" class="form-control" formControlName="fechaInicio" title="Fecha de inicio">
+            </form>
+            <form class="col">
+                <label>Fecha Fin</label>
+                <input type="date" class="form-control" formControlName="fechaFin" title="Fecha de fin">
+            </form>
+        </div>
+
+        <hr>
+
+        <!-- Ingresos -->
+        <h4>Ingresos</h4>
+        <button type="button" class="btn btn-success mb-2" (click)="agregarIngreso()">Añadir Ingreso</button>
+        <div formArrayName="ingresos" *ngFor="let ingreso of ingresos.controls; let i = index">
+            <form [formGroupName]="i" class="border p-3 mb-2">
+                <input type="text" placeholder="Fuente" class="form-control mb-2" formControlName="fuente">
+                <input type="number" placeholder="Monto (€)" class="form-control mb-2" formControlName="monto">
+                <input type="date" class="form-control mb-2" formControlName="fecha" title="Fecha del ingreso">
+                <input type="text" placeholder="Método de pago" class="form-control mb-2" formControlName="metodoPago">
+                <input type="text" placeholder="Categoría" class="form-control mb-2" formControlName="categoria">
+                <textarea placeholder="Comentarios" class="form-control" formControlName​="comentarios"></textarea>
+            </form>
+        </div>
+
+        <!-- Gastos -->
+        <h4>Gastos</h4>
+        <button type="button" class="btn btn-danger mb-2" (click)="agregarGasto()">Añadir Gasto</button>
+        <div formArrayName="gastos" *ngFor="let gasto of gastos.controls; let i = index">
+            <form [formGroupName]="i" class="border p-3 mb-2">
+                <input type="text" placeholder="Concepto" class="form-control mb-2" formControlName="concepto">
+                <input type="number" placeholder="Monto (€)" class="form-control mb-2" formControlName="monto">
+                <input type="date" class="form-control mb-2" formControlName="fecha">
+                <input type="text" placeholder="Forma de pago" class="form-control mb-2" formControlName="formaPago">
+                <input type="text" placeholder="Categoría" class="form-control mb-2" formControlName="categoria">
+                <textarea placeholder="Comentarios" class="form-control" formControlName="comentarios"></textarea>
+            </form>
+        </div>
+
+        <!-- Proyecciones -->
+        <hr>
+        <h4>Proyecciones</h4>
+        <div formGroupName="proyecciones" class="row">
+            <div class="col">
+                <label>Ingresos Esperados (€)</label>
+                <input type="number" class="form-control" formControlName="ingresosEsperados">
+            </div>
+            <div class="col">
+                <label>Gastos Esperados (€)</label>
+                <input type="number" class="form-control" formControlName="gastosEsperados">
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+    </form>
+</div>
+<!-- End Main Content -->
+
+<!-- Footer -->
+<app-footer></app-footer>
+<!-- End Footer -->
