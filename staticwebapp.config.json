@@ -1,1 +1,40 @@
-{}
+{
+    "routes": [
+        {
+            "route": "/cash-flow-formulario",
+            "serve": "/index.html",
+            "statusCode": 200
+        },
+        {
+            "route": "/cash-flow",
+            "serve": "/index.html",
+            "statusCode": 200
+        },
+        {
+            "route": "/desarrollo",
+            "serve": "/index.html",
+            "statusCode": 200
+        },
+        {
+            "route": "/inicio",
+            "serve": "/index.html",
+            "statusCode": 200
+        },
+        {
+            "route": "/home",
+            "serve": "/index.html",
+            "statusCode": 200
+        },
+        {
+            "route": "/*",
+            "serve": "/index.html",
+            "statusCode": 200
+        }
+    ],
+    "responseOverrides": {
+        "404": {
+            "rewrite": "/index.html"
+        }
+    }
+}
+
